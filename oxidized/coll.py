@@ -76,7 +76,7 @@ def backup_config(save=True):
             # print('differ内容是%s' % differ)
             print('2')
     else:
-        change_time = ''
+        change_time = '0000-00-00 00:00:00'
         differ = 'null'
     if save:
         try:
