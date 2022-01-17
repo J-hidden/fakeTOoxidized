@@ -176,3 +176,12 @@ def task_list():
         time.sleep(30)   # 此处为采集完成后间隔多长时间再次执行采集动作
 ```
 
+
+
+
+
+## 联系我
+
+如果有其他问题，可以关注微信公众号 NetDevOps小学徒交流
+
+<img src="/Users/lixilei/Documents/搜一搜公众号推广物料图片-png/扫码_搜索联合传播样式-标准色版.png" alt="扫码_搜索联合传播样式-标准色版" style="zoom:50%;" />
