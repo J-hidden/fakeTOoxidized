@@ -76,34 +76,33 @@ def backup_config(save=True):
             # print('differ内容是%s' % differ)
             print('2')
     else:
-        change_time = '0000-00-00 00:00:00'
+        change_time = '1900-01-01 11:11:11'
         differ = 'null'
     if save:
-        try:
-            obj, created = Oxidized.objects.update_or_create(ip=ip,
-                                                             defaults=dict(name=name,
-                                                                           ip=ip,
-                                                                           group=group,
-                                                                           platform=platform,
-                                                                           last_update=update_time,
-                                                                           state=state,
-                                                                           last_change=change_time,
-                                                                           config=output,
-                                                                           diff=differ,
-                                                                           ))
+            try:
+                obj, created = Oxidized.objects.update_or_create(ip=ip,
+                                                                 defaults=dict(name=name,
+                                                                               ip=ip,
+                                                                               group=group,
+                                                                               platform=platform,
+                                                                               last_update=update_time,
+                                                                               state=state,
+                                                                               last_change=change_time,
+                                                                               config=output,
+                                                                               diff=differ,
+                                                                               ))
 
-            print('设备%s保存成功' % ip)
-        except Exception as e:
-            print('设备%s保存失败，原因是%s' % (ip, str(e)))
+                print('设备%s保存成功' % ip)
+            except Exception as e:
+                print('设备%s保存失败，原因是%s' % (ip, str(e)))
 
-
-# def task_list():
-#     schedule.clear()
-#     schedule.every(60).seconds.do(backup_config)
-#     while True:
-#         schedule.run_pending()
-#         time.sleep(30)
+def task_list():
+    schedule.clear()
+    schedule.every(60).seconds.do(backup_config)
+    while True:
+        schedule.run_pending()
+        time.sleep(30)
 
 
 if __name__ == '__main__':
-    backup_config()
+    task_list()
